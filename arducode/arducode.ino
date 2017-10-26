@@ -21,12 +21,11 @@ void getMCGS();
 void getN0X(); 
 void getO3(); 
    
-int iter = 5; // iter used to declare the number of times a reading is averaged over before printing to SD card - used to slow down number of readings printed to SD 
+int iter = 3; // iter used to declare the number of times a reading is averaged over before printing to SD card - used to slow down number of readings printed to SD 
 File myFile;
 int chipSelect = 4;
 dht DHT;
 #define DHT11_PIN 7
-int i = 0;
 SoftwareSerial mySerialO(2, 3); // RX, TX for O3 SPEC SENSOR 
 SoftwareSerial mySerial(5, 4); // RX, TX for NO2 SPEC SENSOR 
 
