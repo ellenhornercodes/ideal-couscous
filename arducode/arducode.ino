@@ -99,6 +99,7 @@ void loop() {
 
 } 
 
+// this function prints the date and time in the format YY-MM-DD H:M:S 
 void printTime(DateTime now){
     myFile.print(now.year(), DEC);
     myFile.print("-");
@@ -115,6 +116,7 @@ void printTime(DateTime now){
 }
 
 
+// this function does the same as the above but prints to serial rather than SD card 
 
 void serialPrintTime(DateTime now){
   
@@ -132,6 +134,7 @@ void serialPrintTime(DateTime now){
     Serial.print("\n");
 }
 
+// this function prints the 3 resistor values RsO Rs1 and Rs2 to the serial and SD card from the Multichannel Gas Sensor 
 void getMCGS(){
   
     float sumR0 = 0;
@@ -170,6 +173,8 @@ void getMCGS(){
     myFile.print(",");
 }
 
+// this function gets the humidity and temperature from the DHT11 sensor and takes an average of 5 consecutive readings 
+
 void getHT(){
     
     float sumT = 0;
@@ -195,6 +200,8 @@ for (int j = 0; j < iter; j++) {
     myFile.print(sumH); 
     myFile.print(","); 
 }
+
+// the following function takes the readings from the SPEC N02 sensor and averages 5 readings before printing to serial and SD card - does not print serial number as too long to be averaged as an unsigned int 
      
 void getN0X() {
   
@@ -223,6 +230,8 @@ void getN0X() {
     }
    mySerial.end();
 }
+
+// exactly the same function as the N02 SPEC sensor but for O3 again omitting the serial number 
 
 void getO3() {
 
